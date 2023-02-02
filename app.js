@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const date = require(__dirname+'/date.js')
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -13,10 +15,8 @@ let items = [];
 let work_items = [];
 
 app.get('/', (req, res) => {
-    const day = new Date();
-    const d = day.toLocaleString('en-IN', { weekday: 'short', month: '2-digit', year: 'numeric', day: 'numeric' })
-    const name = '';
-    res.render('index', { head: d, items: items, name: 'home' });
+    // imported module.
+    res.render('index', { head: date(), items: items, name: 'home' });
 });
 
 app.get('/work', (req, res) => {
