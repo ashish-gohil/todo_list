@@ -1,0 +1,25 @@
+<%- include('header.ejs') -%>
+
+    <div class="box" id="heading">
+        <h1>
+            <%=head%>
+        </h1>
+    </div>
+    <div class="box">
+        <% for(let itm of items){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= itm %>
+                </p>
+            </div>
+            <% } %>
+
+                <form class="item" action="/" method="post">
+                    <input type="text" placeholder="Add item" name="add">
+                    <button type="submit" name="name" value="<%=name%>">+</button>
+                    
+                </form>
+    </div>
+
+    <%- include('footer.ejs') -%>
